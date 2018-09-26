@@ -4,10 +4,12 @@ using namespace std;
 
 int main() {
 
-	int n;	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ <= 1000
+	int n;	//°ú¸ñ °³¼ö <= 1000
 	double big = 0;
 	double sum = 0;
+	cin >> n;
 
+	double *a = new double[n];
 
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
