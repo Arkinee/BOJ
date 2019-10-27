@@ -1,2 +1,2 @@
-# BOJ & SW Expert Academy
+# BOJ
 백준 C++
