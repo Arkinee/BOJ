@@ -33,7 +33,6 @@ void dp(int k) {
 	}
 }
 
-
 int main() {
 
 	ios::sync_with_stdio(false);
