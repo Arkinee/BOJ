@@ -5,7 +5,6 @@ n = int(input())
 
 graph = [[] for _ in range(n+1)]
 parents = [0 for _ in range(n+1)]
-find = [False for _ in range(n+1)]
 parents[1] = 1
 #print(parent)
 
