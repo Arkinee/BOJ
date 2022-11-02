@@ -1,52 +1,53 @@
 from collections import deque
 t = int(input())
 q = deque()
-err = ['e','r','r','o','r']
 eFlag = False
+cnt = 0
 
 while t != 0:
 
     func = input()
     leng = int(input())
-    arr = input()[1:-1].split(',')
-    # leng->len(idx): 1->3(1), 2->5(1,3), 3->7(1,3,5)
+    q = deque(input()[1:-1].split(','))
 
     if leng == 0 and 'D' in func:
         print('error')
+        t -= 1
         continue
-        
-    for idx in range(len(arr)):
-
-        num = arr[idx]
-        if num != '[' and num != ']' and num != ',':
-            q.append(int(num))
-
-    #print('q ' + str(list(q)))  
 
     for f in func:
 
         if f == 'R':
-
-            q.reverse()
+            cnt += 1
 
         elif f == 'D':
-
+            
             if len(q) == 0:
                 print('error')
                 eFlag = True
                 break
 
             else:
-                q.popleft()
+                if cnt % 2 == 1:
+                    q.pop()
+                else:
+                    q.popleft()
 
-    #print('[', end='')
     if eFlag:
         eFlag = False
+        t -= 1
+        cnt = 0
+        q.clear()
         continue
-    
-    temp = list(q)
-    print(temp, sep=',')
-    #print(']')
 
+    temp = list(q)
+
+    if cnt % 2 == 1:
+        temp.reverse()
+        print("[" + ",".join(map(str,temp)) + "]")
+    else:
+        print("[" + ",".join(map(str,temp)) + "]")
+
+    cnt = 0
     q.clear()
     t -= 1
